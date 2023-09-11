@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://mdn.github.io/todo-vue/",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
     "compile": "vue-tsc",
