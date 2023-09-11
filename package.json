@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "serve": "pnpm --filter todo-app run serve",
+    "build": "pnpm --filter todo-app run build",
+    "lint": "pnpm --filter todo-app run lint"
+  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.15",
     "@vue/cli-plugin-babel": "^5.0.8",
