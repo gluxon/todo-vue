@@ -18,12 +18,13 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import uniqueId from "lodash.uniqueid";
+import { defineComponent } from "vue";
 import ToDoItem from "./components/ToDoItem.vue";
 import ToDoForm from "./components/ToDoForm.vue";
-import uniqueId from "lodash.uniqueid";
 
-export default {
+export default defineComponent({
   name: "app",
   components: {
     ToDoItem,
@@ -44,24 +45,30 @@ export default {
     };
   },
   methods: {
-    addToDo(toDoLabel) {
+    addToDo(toDoLabel: string) {
       this.ToDoItems.push({
         id: uniqueId("todo-"),
         label: toDoLabel,
         done: false,
       });
     },
-    updateDoneStatus(toDoId) {
+    updateDoneStatus(toDoId: string) {
       const toDoToUpdate = this.ToDoItems.find((item) => item.id === toDoId);
+      if (toDoToUpdate == null) {
+        throw new Error(`Todo with ID not found: ${toDoId}`)
+      }
       toDoToUpdate.done = !toDoToUpdate.done;
     },
-    deleteToDo(toDoId) {
+    deleteToDo(toDoId: string) {
       const itemIndex = this.ToDoItems.findIndex((item) => item.id === toDoId);
       this.ToDoItems.splice(itemIndex, 1);
-      this.$refs.listSummary.focus();
+      (this.$refs.listSummary as HTMLElement).focus();
     },
-    editToDo(toDoId, newLabel) {
+    editToDo(toDoId: string, newLabel: string) {
       const toDoToEdit = this.ToDoItems.find((item) => item.id === toDoId);
+      if (toDoToEdit == null) {
+        throw new Error(`Todo with ID not found: ${toDoId}`)
+      }
       toDoToEdit.label = newLabel;
     },
   },
@@ -73,7 +80,7 @@ export default {
       return `${numberFinishedItems} out of ${this.ToDoItems.length} items completed`;
     },
   },
-};
+});
 </script>
 
 <style>

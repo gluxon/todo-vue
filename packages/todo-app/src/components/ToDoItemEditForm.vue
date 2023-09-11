@@ -21,8 +21,10 @@
     </div>
   </form>
 </template>
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   props: {
     label: {
       type: String,
@@ -49,10 +51,10 @@ export default {
     },
   },
   mounted() {
-    const labelInputRef = this.$refs.labelInput;
+    const labelInputRef = this.$refs.labelInput as HTMLLabelElement;
     labelInputRef.focus();
   },
-};
+});
 </script>
 <style scoped>
 .edit-label {

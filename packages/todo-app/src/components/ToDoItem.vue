@@ -1,5 +1,5 @@
-<script setup>
-import { computed, ref, nextTick } from 'vue'
+<script lang="ts" setup>
+import { computed, ref, nextTick, VNodeRef } from 'vue'
 import ToDoItemEditForm from "./ToDoItemEditForm.vue";
 
 const props = defineProps({
@@ -13,7 +13,7 @@ const emit = defineEmits(['item-deleted', 'item-edited'])
 const isEditing = ref(false)
 const isDone = computed(() => props.done)
 
-const editButton = ref(null)
+const editButton = ref<VNodeRef | null>(null)
 
 function deleteToDo() {
   emit("item-deleted");
@@ -24,7 +24,7 @@ function toggleToItemEditForm() {
   isEditing.value = true;
 }
 
-function itemEdited(newLabel) {
+function itemEdited(newLabel: string) {
   emit("item-edited", newLabel);
   isEditing.value = false;
   focusOnEditButton();

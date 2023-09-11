@@ -1,15 +1,16 @@
 {
   "scripts": {
+    "compile": "pnpm --filter todo-app run compile",
     "serve": "pnpm --filter todo-app run serve",
     "build": "pnpm --filter todo-app run build",
     "lint": "pnpm --filter todo-app run lint"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.22.15",
-    "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
     "eslint": "^8.48.0",
-    "eslint-plugin-vue": "^9.17.0"
+    "eslint-plugin-vue": "^9.17.0",
+    "vue-tsc": "^1.8.10"
   },
   "pnpm": {
     "allowedDeprecatedVersions": {

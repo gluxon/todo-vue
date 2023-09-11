@@ -5,8 +5,9 @@ module.exports = {
   },
   extends: ["plugin:vue/essential", "eslint:recommended"],
   parserOptions: {
-    parser: "@babel/eslint-parser",
+    parser: "@typescript-eslint/parser",
   },
+  plugins: ['@typescript-eslint'],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",

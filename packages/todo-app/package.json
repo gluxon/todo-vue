@@ -7,6 +7,7 @@
     "node": ">=18.0.0"
   },
   "scripts": {
+    "compile": "vue-tsc",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
@@ -17,6 +18,10 @@
     "vue": "^3.3.0"
   },
   "devDependencies": {
+    "@types/lodash.uniqueid": "^4.0.7",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-plugin-typescript": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
     "vue-template-compiler": "^2.7.14"
   }
