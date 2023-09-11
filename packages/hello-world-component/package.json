@@ -1,0 +1,6 @@
+{
+  "name": "hello-world-component",
+  "dependencies": {
+    "vue": "^3.2.0"
+  }
+}
