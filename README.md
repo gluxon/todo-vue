@@ -11,25 +11,25 @@ For the live version, see https://mdn.github.io/todo-vue/.
 To get up and running, follow these steps:
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### Compile and hot-reload for development
 
 ```bash
-npm run serve
+pnpm run serve
 ```
 
 ### Compile and minify for production
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 ### Lint and fix files
 
 ```bash
-npm run lint
+pnpm run lint
 ```
 
 ### Customize configuration

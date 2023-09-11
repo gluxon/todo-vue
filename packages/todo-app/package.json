@@ -1,0 +1,23 @@
+{
+  "name": "todo-app",
+  "version": "0.2.0",
+  "private": true,
+  "homepage": "https://mdn.github.io/todo-vue/",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.32.2",
+    "lodash.uniqueid": "^4.0.1",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^5.0.8",
+    "vue-template-compiler": "^2.7.14"
+  }
+}
