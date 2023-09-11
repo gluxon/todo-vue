@@ -1,3 +1,47 @@
+<script setup>
+import { computed, ref, nextTick } from 'vue'
+import ToDoItemEditForm from "./ToDoItemEditForm.vue";
+
+const props = defineProps({
+  label: { required: true, type: String },
+  done: { default: false, type: Boolean },
+  id: { required: true, type: String },
+})
+
+const emit = defineEmits(['item-deleted', 'item-edited'])
+
+const isEditing = ref(false)
+const isDone = computed(() => props.done)
+
+const editButton = ref(null)
+
+function deleteToDo() {
+  emit("item-deleted");
+}
+
+function toggleToItemEditForm() {
+  console.log(editButton);
+  isEditing.value = true;
+}
+
+function itemEdited(newLabel) {
+  emit("item-edited", newLabel);
+  isEditing.value = false;
+  focusOnEditButton();
+}
+
+function editCancelled() {
+  isEditing.value = false;
+  focusOnEditButton();
+}
+
+function focusOnEditButton() {
+  nextTick(() => {
+    editButton.value.focus();
+  });
+}
+</script>
+
 <template>
   <div class="stack-small" v-if="!isEditing">
     <div class="custom-checkbox">
@@ -31,55 +75,6 @@
     @item-edited="itemEdited"
     @edit-cancelled="editCancelled"></to-do-item-edit-form>
 </template>
-
-<script>
-import ToDoItemEditForm from "./ToDoItemEditForm.vue";
-
-export default {
-  components: {
-    ToDoItemEditForm,
-  },
-  props: {
-    label: { required: true, type: String },
-    done: { default: false, type: Boolean },
-    id: { required: true, type: String },
-  },
-  data() {
-    return {
-      isEditing: false,
-    };
-  },
-  computed: {
-    isDone() {
-      return this.done;
-    },
-  },
-  methods: {
-    deleteToDo() {
-      this.$emit("item-deleted");
-    },
-    toggleToItemEditForm() {
-      console.log(this.$refs.editButton);
-      this.isEditing = true;
-    },
-    itemEdited(newLabel) {
-      this.$emit("item-edited", newLabel);
-      this.isEditing = false;
-      this.focusOnEditButton();
-    },
-    editCancelled() {
-      this.isEditing = false;
-      this.focusOnEditButton();
-    },
-    focusOnEditButton() {
-      this.$nextTick(() => {
-        const editButtonRef = this.$refs.editButton;
-        editButtonRef.focus();
-      });
-    },
-  },
-};
-</script>
 
 <style scoped>
 .custom-checkbox > .checkbox-label {
