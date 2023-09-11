@@ -21,7 +21,7 @@
 <script lang="ts">
 import uniqueId from "lodash.uniqueid";
 import { defineComponent } from "vue";
-import ToDoItem from "./components/ToDoItem.vue";
+import ToDoItem from "todo-item-component/components/ToDoItem.vue";
 import ToDoForm from "./components/ToDoForm.vue";
 
 export default defineComponent({

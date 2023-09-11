@@ -1,0 +1,6 @@
+{
+  "name": "todo-item-component",
+  "dependencies": {
+    "vue": "^3.3.4"
+  }
+}
